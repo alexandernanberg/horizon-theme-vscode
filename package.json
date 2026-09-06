@@ -76,5 +76,5 @@
   "engines": {
     "vscode": "^1.83.0"
   },
-  "packageManager": "pnpm@10.33.0"
+  "packageManager": "pnpm@12.3.4"
 }

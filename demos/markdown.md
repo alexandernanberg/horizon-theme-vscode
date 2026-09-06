@@ -2,7 +2,7 @@
 
 > This is a quote
 
-[Here's a link]()
+[Here's a link](<>)
 
 1. Step 1
 2. Step 2
@@ -19,5 +19,5 @@ _italic_
 `code`
 
 ```javascript
-const x = 29;
+const x = 29
 ```

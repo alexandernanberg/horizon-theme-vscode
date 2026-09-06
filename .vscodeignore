@@ -1,4 +1,9 @@
-.vscode
+.vscode/**
+.github/**
 .gitignore
-demos
-docs
+demos/**
+src/**
+pnpm-lock.yaml
+preview.png
+CONTRIBUTING.md
+CODE_OF_CONDUCT.md

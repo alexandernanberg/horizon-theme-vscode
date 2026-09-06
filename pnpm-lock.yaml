@@ -1,23 +1,37 @@
-lockfileVersion: 5.4
+lockfileVersion: "9.0"
 
-specifiers:
-  mustache: ^3.0.1
-  prettier: ^2.5.0
+settings:
+  autoInstallPeers: true
+  excludeLinksFromLockfile: false
 
-devDependencies:
-  mustache: 3.2.1
-  prettier: 2.8.1
+importers:
+  .:
+    devDependencies:
+      mustache:
+        specifier: ^3.0.1
+        version: 3.2.1
+      prettier:
+        specifier: ^2.5.0
+        version: 2.8.8
 
 packages:
-
-  /mustache/3.2.1:
-    resolution: {integrity: sha512-RERvMFdLpaFfSRIEe632yDm5nsd0SDKn8hGmcUwswnyiE5mtdZLDybtHAz6hjJhawokF0hXvGLtx9mrQfm6FkA==}
-    engines: {npm: '>=1.4.0'}
+  mustache@3.2.1:
+    resolution:
+      {
+        integrity: sha512-RERvMFdLpaFfSRIEe632yDm5nsd0SDKn8hGmcUwswnyiE5mtdZLDybtHAz6hjJhawokF0hXvGLtx9mrQfm6FkA==,
+      }
+    engines: { npm: ">=1.4.0" }
     hasBin: true
-    dev: true
 
-  /prettier/2.8.1:
-    resolution: {integrity: sha512-lqGoSJBQNJidqCHE80vqZJHWHRFoNYsSpP9AjFhlhi9ODCJA541svILes/+/1GM3VaL/abZi7cpFzOpdR9UPKg==}
-    engines: {node: '>=10.13.0'}
+  prettier@2.8.8:
+    resolution:
+      {
+        integrity: sha512-tdN8qQGvNjw4CHbY+XXk0JgCXn9QiF21a55rBe5LJAU+kDyC4WQn4+awm2Xfk2lQMk5fKup9XgzTZtGkjBdP9Q==,
+      }
+    engines: { node: ">=10.13.0" }
     hasBin: true
-    dev: true
+
+snapshots:
+  mustache@3.2.1: {}
+
+  prettier@2.8.8: {}

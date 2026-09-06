@@ -8,13 +8,14 @@
   "license": "MIT",
   "icon": "logo.png",
   "scripts": {
-    "build": "npm run build:dark && npm run build:bright && prettier . --write",
-    "build:dark": "node src/dark/build",
-    "build:bright": "node src/bright/build"
+    "build": "node src/build.js && prettier --write themes",
+    "check": "pnpm build && git diff --exit-code -- themes",
+    "format": "prettier --write ."
   },
   "engines": {
-    "vscode": "^1.26.0"
+    "vscode": "^1.83.0"
   },
+  "packageManager": "pnpm@10.33.0",
   "galleryBanner": {
     "color": "#FCEAE5",
     "theme": "light"

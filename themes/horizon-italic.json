@@ -53,6 +53,7 @@
     "tab.activeBorder": "#E95378",
     "tab.inactiveBackground": "#1C1E26",
     "editor.background": "#1C1E26",
+    "editor.foreground": "#BBBBBB",
     "editorLineNumber.foreground": "#D5D8DA1A",
     "editorLineNumber.activeForeground": "#D5D8DA80",
     "editorCursor.background": "#1C1E26",
@@ -67,12 +68,16 @@
     "editor.hoverHighlightBackground": "#6C6F934D",
     "editor.lineHighlightBackground": "#2E303E4D",
     "editor.rangeHighlightBackground": "#2E303E80",
-    "editorIndentGuide.background": "#2E303E80",
-    "editorIndentGuide.activeBackground": "#2E303E",
+    "editorIndentGuide.background1": "#2E303E80",
+    "editorIndentGuide.activeBackground1": "#2E303E",
     "editorRuler.foreground": "#6C6F934D",
     "editorCodeLens.foreground": "#6C6F9380",
     "editorBracketMatch.background": "#6C6F9380",
     "editorBracketMatch.border": "#6C6F9300",
+    "editorBracketHighlight.foreground1": "#FAC29A",
+    "editorBracketHighlight.foreground2": "#B877DB",
+    "editorBracketHighlight.foreground3": "#25B0BC",
+    "editorBracketHighlight.unexpectedBracket.foreground": "#F43E5C",
     "editorOverviewRuler.border": "#2E303EB3",
     "editorOverviewRuler.findMatchForeground": "#6C6F93",
     "editorOverviewRuler.modifiedForeground": "#21BFC280",
@@ -155,7 +160,7 @@
     },
     {
       "scope": "entity.name.tag",
-      "settings": { "foreground": "#E95678E6", "fontStyle": "normal" }
+      "settings": { "foreground": "#E95678E6", "fontStyle": "" }
     },
     {
       "scope": ["entity.name.type", "storage.type.cs"],
@@ -258,7 +263,7 @@
     },
     {
       "scope": "punctuation.definition.tag",
-      "settings": { "foreground": "#E95678B3", "fontStyle": "normal" }
+      "settings": { "foreground": "#E95678B3", "fontStyle": "" }
     },
     {
       "scope": "punctuation.separator",

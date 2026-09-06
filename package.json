@@ -1,34 +1,39 @@
 {
   "name": "horizon-theme-vscode",
-  "version": "1.0.1",
-  "author": "Alexander Nanberg",
   "displayName": "Horizon Theme",
+  "version": "1.0.1",
   "description": "A beautifully warm dual theme for Visual Studio Code",
-  "publisher": "alexandernanberg",
-  "license": "MIT",
-  "icon": "logo.png",
-  "scripts": {
-    "build": "node src/build.js && prettier --write themes",
-    "check": "pnpm build && git diff --exit-code -- themes",
-    "format": "prettier --write ."
-  },
-  "engines": {
-    "vscode": "^1.83.0"
-  },
-  "packageManager": "pnpm@10.33.0",
-  "galleryBanner": {
-    "color": "#FCEAE5",
-    "theme": "light"
-  },
   "categories": [
     "Themes"
   ],
   "keywords": [
-    "theme",
     "dark",
     "horizon",
+    "theme",
     "warm"
   ],
+  "bugs": {
+    "url": "https://github.com/alexandernanberg/horizon-theme-vscode/issues"
+  },
+  "license": "MIT",
+  "author": "Alexander Nanberg",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/alexandernanberg/horizon-theme-vscode"
+  },
+  "publisher": "alexandernanberg",
+  "type": "module",
+  "scripts": {
+    "build": "node src/build.js && oxfmt --write themes",
+    "check": "pnpm build && git diff --exit-code -- themes",
+    "format": "oxfmt --write .",
+    "format:check": "oxfmt --check ."
+  },
+  "devDependencies": {
+    "mustache": "^3.0.1",
+    "oxfmt": "^0.66.0",
+    "oxlint-config-alexandernanberg": "^1.2.1"
+  },
   "contributes": {
     "themes": [
       {
@@ -63,15 +68,13 @@
       }
     ]
   },
-  "devDependencies": {
-    "mustache": "^3.0.1",
-    "prettier": "^2.5.0"
+  "icon": "logo.png",
+  "galleryBanner": {
+    "color": "#FCEAE5",
+    "theme": "light"
   },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/alexandernanberg/horizon-theme-vscode"
+  "engines": {
+    "vscode": "^1.83.0"
   },
-  "bugs": {
-    "url": "https://github.com/alexandernanberg/horizon-theme-vscode/issues"
-  }
+  "packageManager": "pnpm@10.33.0"
 }

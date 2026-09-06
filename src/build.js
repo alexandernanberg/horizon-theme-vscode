@@ -1,61 +1,61 @@
-const fs = require("fs");
-const path = require("path");
-const mustache = require("mustache");
+import mustache from 'mustache'
+import fs from 'node:fs'
+import path from 'node:path'
 
 // Colors are not HTML; never escape rendered values.
-mustache.escape = (text) => text;
+mustache.escape = (text) => text
 
-const COLOR_RE = /^#[0-9A-Fa-f]{6}([0-9A-Fa-f]{2})?$/;
+const COLOR_RE = /^#[0-9A-Fa-f]{6}([0-9A-Fa-f]{2})?$/
 // Mirrors the pattern in VS Code's color theme schema.
-const FONT_STYLE_RE = /^(\s*\b(italic|bold|underline|strikethrough))*\s*$/;
+const FONT_STYLE_RE = /^(\s*\b(italic|bold|underline|strikethrough))*\s*$/
 
 const families = [
-  { dir: "dark", themes: ["horizon", "horizon-italic", "horizon-bold"] },
+  { dir: 'dark', themes: ['horizon', 'horizon-italic', 'horizon-bold'] },
   {
-    dir: "bright",
-    themes: ["horizon-bright", "horizon-bright-italic", "horizon-bright-bold"],
+    dir: 'bright',
+    themes: ['horizon-bright', 'horizon-bright-italic', 'horizon-bright-bold'],
   },
-];
+]
 
-const outDir = path.join(__dirname, "..", "themes");
-const readJson = (file) => JSON.parse(fs.readFileSync(file, "utf8"));
+const outDir = path.join(import.meta.dirname, '..', 'themes')
+const readJson = (file) => JSON.parse(fs.readFileSync(file, 'utf8'))
 
 function validate(theme, name) {
-  const errors = [];
+  const errors = []
   for (const [key, value] of Object.entries(theme.colors)) {
-    if (!COLOR_RE.test(value)) errors.push(`colors.${key} = "${value}"`);
+    if (!COLOR_RE.test(value)) errors.push(`colors.${key} = "${value}"`)
   }
   theme.tokenColors.forEach((rule, i) => {
-    const { foreground, fontStyle } = rule.settings;
-    const label = `tokenColors[${i}] (${JSON.stringify(rule.scope)})`;
+    const { foreground, fontStyle } = rule.settings
+    const label = `tokenColors[${i}] (${JSON.stringify(rule.scope)})`
     if (foreground !== undefined && !COLOR_RE.test(foreground)) {
-      errors.push(`${label} foreground = "${foreground}"`);
+      errors.push(`${label} foreground = "${foreground}"`)
     }
     if (fontStyle !== undefined && !FONT_STYLE_RE.test(fontStyle)) {
-      errors.push(`${label} fontStyle = "${fontStyle}"`);
+      errors.push(`${label} fontStyle = "${fontStyle}"`)
     }
-  });
+  })
   if (errors.length > 0) {
-    throw new Error(`${name}: invalid values\n  ${errors.join("\n  ")}`);
+    throw new Error(`${name}: invalid values\n  ${errors.join('\n  ')}`)
   }
 }
 
 for (const { dir, themes } of families) {
-  const base = path.join(__dirname, dir);
-  const globals = readJson(path.join(base, "globals.json"));
-  const template = fs.readFileSync(path.join(base, "template.json"), "utf8");
+  const base = path.join(import.meta.dirname, dir)
+  const globals = readJson(path.join(base, 'globals.json'))
+  const template = fs.readFileSync(path.join(base, 'template.json'), 'utf8')
 
   for (const themeName of themes) {
-    const variant = readJson(path.join(base, `${themeName}.json`));
-    const rendered = mustache.render(template, { ...variant, ...globals });
+    const variant = readJson(path.join(base, `${themeName}.json`))
+    const rendered = mustache.render(template, { ...variant, ...globals })
     // JSON.parse fails loudly if the template renders to broken JSON.
-    const theme = JSON.parse(rendered);
-    validate(theme, themeName);
+    const theme = JSON.parse(rendered)
+    validate(theme, themeName)
     fs.writeFileSync(
       path.join(outDir, `${themeName}.json`),
-      // Compact output; prettier (run after) formats it consistently.
-      JSON.stringify(theme)
-    );
-    console.log(`built themes/${themeName}.json`);
+      // Compact output; oxfmt (run after) formats it consistently.
+      JSON.stringify(theme),
+    )
+    console.log(`built themes/${themeName}.json`)
   }
 }

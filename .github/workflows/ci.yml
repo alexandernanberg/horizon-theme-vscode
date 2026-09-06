@@ -16,6 +16,7 @@ jobs:
           node-version: 22
           cache: pnpm
       - run: pnpm install --frozen-lockfile
+      - run: pnpm format:check
       - run: pnpm build
       - name: Ensure themes/ is built from src/
         run: git diff --exit-code -- themes

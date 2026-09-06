@@ -7,3 +7,4 @@ pnpm-lock.yaml
 preview.png
 CONTRIBUTING.md
 CODE_OF_CONDUCT.md
+oxfmt.config.ts

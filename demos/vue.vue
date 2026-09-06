@@ -7,12 +7,12 @@ export default {
   data() {
     return {
       active: true,
-    };
+    }
   },
   methods: {
     handleClick() {},
   },
-};
+}
 </script>
 
 <style lang="scss" scoped>

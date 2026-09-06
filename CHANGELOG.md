@@ -13,6 +13,7 @@ All notable changes to Horizon will be documented in this file.
 - Exclude sources, lockfile and preview image from the published package
 - Require VS Code 1.83+ (`semanticHighlighting` already required 1.43+)
 - Add CI that verifies `themes/` is built from `src/`
+- Replace prettier with oxfmt using `oxlint-config-alexandernanberg`
 
 ## 1.0.1
 

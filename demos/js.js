@@ -1,37 +1,37 @@
-let num = 29;
-var bool = true;
-const string = "string";
-const template = `something${something}something${something()}`;
-const regex = /^abc|def[A-Z]$/gim;
+let num = 29
+var bool = true
+const string = 'string'
+const template = `something${something}something${something()}`
+const regex = /^abc|def[A-Z]$/gim
 
 // comment
 
 class Class {
   constructor() {
-    this.something;
+    this.something
   }
   static method() {}
 }
 
-const something = new Class();
+const something = new Class()
 
-something.method();
+something.method()
 
 async function func(param) {
-  await op();
-  return;
+  await op()
+  return
 }
 
-func();
+func()
 
-console.log();
+console.log()
 
 try {
 } catch (err) {}
 
 const obj = {
   a: something,
-};
+}
 
 if (something) {
 } else if (something) {
@@ -39,10 +39,10 @@ if (something) {
 }
 
 switch (something) {
-  case "something":
-    break;
+  case 'something':
+    break
   default:
-    break;
+    break
 }
 
 for (let i = 0; i < 10; i++) {}
@@ -55,9 +55,9 @@ for (const soemthing in things) {
 
 while (something) {}
 
-do {} while (something);
+do {} while (something)
 
-debugger;
+debugger
 
-import something from "";
-export default something;
+import something from ''
+export default something
